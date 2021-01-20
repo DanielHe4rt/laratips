@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlbumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [AlbumController::class, 'viewWelcome']);
+Route::get('/list', [AlbumController::class, 'viewListAlbum']);
+Route::get('/new', [AlbumController::class, 'viewNewAlbum']);
+
+Route::get('/test', function() {
+    dd(\App\Models\Album::find(1)->toArray());
 });
+
+
+Route::post('/new', [AlbumController::class, 'postAlbum'])->name('new-album');
+

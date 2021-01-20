@@ -30,48 +30,44 @@
     </div>
 </header>
 
-<main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Album example</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-            <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-            </p>
-        </div>
-    </section>
-
+<main role="main" class="container">
     <div class="album py-5 bg-light">
         <div class="container">
-            <div class="row">
-                @foreach($photos as $photo)
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" src="{{ $photo->image_url }}" />
-                        <div class="card-body">
-                            <p class="card-text">
-                                {{ $photo->description }}
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center text-muted">
-                                <small class=" text-right">{{ date('d/m/Y H:i:s') }}</small>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <form method="POST" action="{{ route('new-album') }}" enctype="multipart/form-data">
+                        @csrf
+                        <fieldset>
+                            <legend>Criar novo Post</legend>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="image" id="inputGroupFile02">
+                                        <label class="custom-file-label"  for="inputGroupFile02">Escolha o Arquivo</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Descrição</label>
+                                <textarea type="email" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> </textarea>
+                                <small id="emailHelp" class="form-text text-muted">Decrição da imagem acima</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </fieldset>
+                    </form>
                 </div>
-                @endforeach
             </div>
         </div>
     </div>
+
 </main>
 
 <footer class="text-muted">
     <div class="container">
-        <p class="float-right">
-            <a href="#">Back to top</a>
-        </p>
+
         <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
         <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
                 href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
