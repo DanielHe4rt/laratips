@@ -12,7 +12,7 @@ como melhorar o seu desenvolvimento com a framework Laravel.
 | Titulo  | YouTube Link | Branch Link |
 | ------------- | ------------- | --- |
 | Model Appends/Hides  | [Link](https://www.youtube.com/watch?v=JreS8Fr3Q2c)  | [tips/1-appends](https://github.com/DanielHe4rt/laratips/tree/tips/1-appends)|
-| Localization  | [Link](https://youtube.com/danielhe4rt)  | [tips/1-appends](https://github.com/DanielHe4rt/laratips/tree/tips/2-localization)|
+| Localization  | [Link](https://youtube.com/danielhe4rt)  | [tips/2-localization](https://github.com/DanielHe4rt/laratips/tree/tips/2-localization)|
 
 ## Autores
 
