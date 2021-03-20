@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/auth/callback', [AuthController::class, 'authenticate']);
+Route::get('/auth/logout', [AuthController::class, 'logout']);
+
+Route::get('/{username}', [MainController::class, 'getProfile']);
+Route::post('/{user}/ask', [MainController::class, 'postQuestion'])->name('ask-question');
+Route::post('/{user}/answer/{question}', [MainController::class, 'postAnswerQuestion'])->name('answer-question');
